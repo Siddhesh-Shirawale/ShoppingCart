@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
 
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(fileUpload());
+app.use(helmet());
 
 // Routes Import
 const products = require("./routes/product");
